@@ -17,7 +17,7 @@ def debug_task(self):
 app.conf.beat_schedule = {
     'action_every_monday_8am': {
         'task': 'simpleapp.tasks.my_job',
-        'schedule': crontab(day_of_week='wednesday'),
+        'schedule': crontab(hour=8, minute=0, day_of_week='monday'),
         'args': (),
     },
 }

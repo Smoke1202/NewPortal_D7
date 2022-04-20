@@ -13,9 +13,9 @@ def my_job():
     list_of_users = []
     tags_subs = {}
     for name in Category.objects.all():
-        post_dict[name.name] = Post.objects.filter(date_posted=datetime.fromtimestamp(datetime.timestamp(datetime.now()) - 60), category=name)
+        post_dict[name.name] = Post.objects.filter(date_posted=datetime.fromtimestamp(datetime.timestamp(datetime.now()) - 604800), category=name)
         users_dict[name.name] = Category.objects.get(name=name).subscribers.all()
-        list_of_posts.append(Post.objects.filter(date_posted=datetime.fromtimestamp(datetime.timestamp(datetime.now()) - 60), category=name))
+        list_of_posts.append(Post.objects.filter(date_posted=datetime.fromtimestamp(datetime.timestamp(datetime.now()) - 604800), category=name))
 
     for name in Category.objects.all():
         posts = post_dict[name.name]
